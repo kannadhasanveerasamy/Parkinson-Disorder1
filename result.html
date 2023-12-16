@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/image4.jpg');
+            background-size: cover; /* Make the background image cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            background-attachment: fixed; /* Keep the background image fixed while scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px; /* Adjust the maximum width as needed */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        img {
+            max-width: 100%; /* Ensure the image fits within its container */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove any extra space below the image */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        .classification {
+            text-align: center; /* Center the classification text */
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Result</h1>
+
+        {% if error %}
+            <p>Error: {{ error }}</p>
+        {% else %}
+            <p>Prediction: {{ prediction }}</p>
+
+            <!-- Display the image -->
+            <img src="{{ image_filename }}" alt="Uploaded Image">
+        {% endif %}
+    
+        <a href="/">Back to Upload</a>
+       <a href="/risk">start-quiz</a>
+    </div>
+</body>
+</html>
